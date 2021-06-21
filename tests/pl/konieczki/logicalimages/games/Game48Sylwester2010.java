@@ -3,6 +3,9 @@ package pl.konieczki.logicalimages.games;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
+/**
+ * Based on http://www.pazyl.pl/obrazki/obrazek.php?ol=48
+ */
 public class Game48Sylwester2010 extends AbstractTestGame {
 
     @Override

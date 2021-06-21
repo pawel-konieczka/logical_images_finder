@@ -3,6 +3,9 @@ package pl.konieczki.logicalimages.games;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
+/**
+ * Based on http://www.pazyl.pl/obrazki/obrazek.php?ol=4
+ */
 public class Game04Laufer extends AbstractTestGame {
 
     @Override

@@ -5,6 +5,9 @@ import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
+/**
+ * Based on http://www.pazyl.pl/obrazki/obrazek.php?ol=19
+ */
 public class Game19Labedz extends AbstractTestGame {
 
     @Override

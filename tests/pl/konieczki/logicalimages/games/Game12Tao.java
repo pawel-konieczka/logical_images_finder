@@ -5,6 +5,9 @@ import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
+/**
+ * Based on http://www.pazyl.pl/obrazki/obrazek.php?ol=12
+ */
 public class Game12Tao extends AbstractTestGame {
 
     @Override

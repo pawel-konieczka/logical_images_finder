@@ -3,6 +3,9 @@ package pl.konieczki.logicalimages.games;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
+/**
+ * Based on http://www.pazyl.pl/obrazki/obrazek.php?ol=10
+ */
 public class Game10Domek extends AbstractTestGame {
 
     @Override

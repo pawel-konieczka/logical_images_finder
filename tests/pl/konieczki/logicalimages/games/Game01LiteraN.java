@@ -3,7 +3,10 @@ package pl.konieczki.logicalimages.games;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
-public class Game1LiteraN extends AbstractTestGame {
+/**
+ * Based on http://www.pazyl.pl/obrazki/obrazek.php?ol=1
+ */
+public class Game01LiteraN extends AbstractTestGame {
 
     @Override
     protected Game prepareGame() {
