@@ -20,4 +20,8 @@ public enum FieldState {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Niepoprawne oznaczenie stanu: " + c));
     }
+
+    public static boolean isDefined(char c) {
+        return EMPTY.marker == c || FULL.marker == c;
+    }
 }
