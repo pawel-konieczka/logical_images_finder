@@ -2,7 +2,6 @@ package pl.konieczki.logicalimages.games;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.FieldState;
-import pl.konieczki.logicalimages.model.FieldsRange;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
@@ -59,33 +58,19 @@ public class Game13Wielblad extends AbstractTestGame {
 
     @Override
     protected void addHints(@NonNull Game game) {
-        // 9
-        game.setAllFieldsInRangeTo(9, 9, 14, 16, FieldState.FULL);
-        game.getHorizontalSequencesAt(9).getSequence(1).setRange(FieldsRange.createRange(14, 16));
-        game.setField(9, 17, FieldState.EMPTY);
-        game.setAllFieldsInRangeTo(9, 9, 18, 20, FieldState.FULL);
-        game.getHorizontalSequencesAt(9).getSequence(2).setRange(FieldsRange.createRange(18, 20));
-        // 10
-        game.setAllFieldsInRangeTo(10, 10, 1, 3, FieldState.EMPTY);
-        game.getHorizontalSequencesAt(10).getSequence(0).setRange(FieldsRange.createSingle(6));
-        game.setField(10, 8, FieldState.EMPTY);
-        game.getHorizontalSequencesAt(10).getSequence(1).setRange(FieldsRange.createRange(9, 10));
-        game.getHorizontalSequencesAt(10).getSequence(2).setRange(FieldsRange.createRange(14, 16));
-        game.getHorizontalSequencesAt(10).getSequence(3).setRange(FieldsRange.createSingle(20));
-        // 3
-        game.getHorizontalSequencesAt(3).getSequence(0).setRange(FieldsRange.createRange(8, 9));
-        game.getHorizontalSequencesAt(3).getSequence(1).setRange(FieldsRange.createSingle(17));
-        // 6
-        game.setAllFieldsInRangeTo(6, 6, 3, 19, FieldState.FULL);
-        // 7
-        game.setAllFieldsInRangeTo(7, 7, 3, 20, FieldState.FULL);
-        // 4
-        game.setAllFieldsInRangeTo(4, 4, 7, 10, FieldState.FULL);
-        // 14
-        game.setAllFieldsInRangeTo(14, 14, 20, 21, FieldState.FULL);
+        // row 14
+        game.setAllFieldsInRangeTo(14, 14, 1, 7, FieldState.EMPTY);
+        game.setAllFieldsInRangeTo(14, 14, 8, 9, FieldState.FULL);
+        game.setAllFieldsInRangeTo(14, 14, 10, 12, FieldState.EMPTY);
         game.setAllFieldsInRangeTo(14, 14, 13, 14, FieldState.FULL);
+        game.setAllFieldsInRangeTo(14, 14, 15, 19, FieldState.EMPTY);
+        game.setAllFieldsInRangeTo(14, 14, 20, 21, FieldState.FULL);
+        game.setAllFieldsInRangeTo(14, 14, 22, 25, FieldState.EMPTY);
+        // col 22
+        game.setAllFieldsInRangeTo(1, 5, 22, 22, FieldState.EMPTY);
+        game.setAllFieldsInRangeTo(6, 10, 22, 22, FieldState.FULL);
+        game.setAllFieldsInRangeTo(11, 15, 22, 22, FieldState.EMPTY);
 
-        game.setAllFieldsInRangeTo(12, 13, 25, 25, FieldState.FULL);
-        game.setField(12, 23, FieldState.FULL);
+        game.setAllFieldsInRangeTo(13, 13, 24, 25, FieldState.FULL);
     }
 }

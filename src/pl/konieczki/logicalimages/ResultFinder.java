@@ -60,5 +60,6 @@ public class ResultFinder {
         this.strategies.add(new ExpandSequencesBordersForFullFieldsStrategy(translator));
         this.strategies.add(new MarkAsEmptyWhenRangeTooSmallStrategy(translator));
         this.strategies.add(new MarkAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy(translator));
+        this.strategies.add(new MarkAsFullSequenceRangeStrategy(translator));
     }
 }
