@@ -1,17 +1,18 @@
-package pl.konieczki.logicalimages.strategies;
+package pl.konieczki.logicalimages.strategies.fields;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.Game;
+import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
  * Dla każdego zidentyfikowanego ciągu oznacza wszystkie pola jako pełne wewnątrz zakresu pól.
  * Strategia polowa.
  */
-public class MarkAsFullSequenceRangeStrategy extends AbstractStrategy {
+public class SetAsFullAllFieldsInSequenceRangeStrategy extends AbstractStrategy {
 
-    public MarkAsFullSequenceRangeStrategy(@NonNull GameFieldTranslator translator) {
+    public SetAsFullAllFieldsInSequenceRangeStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
     }
 

@@ -2,12 +2,13 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.fields.SetAsEmptyFieldsWhenNoSequencesStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
-public class MarkAsEmptyWhenNoSequencesStrategyTest extends AbstractTestClassForRowStrategies {
+public class SetAsEmptyFieldsWhenNoSequencesStrategyTest extends AbstractTestClassForRowStrategies {
 
-    public MarkAsEmptyWhenNoSequencesStrategyTest() {
-        super(new MarkAsEmptyWhenNoSequencesStrategy(new RowsGameFieldTranslator(1)));
+    public SetAsEmptyFieldsWhenNoSequencesStrategyTest() {
+        super(new SetAsEmptyFieldsWhenNoSequencesStrategy(new RowsGameFieldTranslator(1)));
     }
 
     @Test

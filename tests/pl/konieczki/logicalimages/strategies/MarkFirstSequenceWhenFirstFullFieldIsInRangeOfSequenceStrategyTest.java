@@ -2,6 +2,7 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.sequences.MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
 public class MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategyTest extends AbstractTestClassForRowStrategies {

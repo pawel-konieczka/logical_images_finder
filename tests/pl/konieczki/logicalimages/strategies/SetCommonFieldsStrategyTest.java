@@ -6,12 +6,13 @@ import pl.konieczki.logicalimages.model.FieldSequence;
 import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
+import pl.konieczki.logicalimages.strategies.fields.SetCommonFieldsStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
-public class MarkCommonFieldsStrategyTest extends AbstractTestClassForRowStrategies {
+public class SetCommonFieldsStrategyTest extends AbstractTestClassForRowStrategies {
 
-    public MarkCommonFieldsStrategyTest() {
-        super(new MarkCommonFieldsStrategy(new RowsGameFieldTranslator(1)));
+    public SetCommonFieldsStrategyTest() {
+        super(new SetCommonFieldsStrategy(new RowsGameFieldTranslator(1)));
     }
 
     @Test
@@ -90,7 +91,7 @@ public class MarkCommonFieldsStrategyTest extends AbstractTestClassForRowStrateg
         Assert.assertEquals(2, fieldsSequences.getCount());
         Assert.assertEquals(2, fieldsSequences.getSequence(0).getId());
         Assert.assertEquals(3, fieldsSequences.getSequence(1).getId());
-        final MarkCommonFieldsStrategy strategy = new MarkCommonFieldsStrategy(translator);
+        final SetCommonFieldsStrategy strategy = new SetCommonFieldsStrategy(translator);
         final boolean b = strategy.find(p);
         Assert.assertTrue(b);
         Assert.assertEquals("X ?XX??XXX? X|1[1:1*],3[4:5],4[8:10],1[13:13*]", p.rowToString(1));

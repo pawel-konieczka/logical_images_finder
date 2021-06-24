@@ -2,12 +2,13 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.fields.SetCommonFieldsStrategy;
 import pl.konieczki.logicalimages.translator.ColumnsGameFieldTranslator;
 
-public class MarkCommonFieldsStrategyColumnTest extends AbstractTestClassForColStrategies {
+public class SetCommonFieldsStrategyColumnTest extends AbstractTestClassForColStrategies {
 
-    public MarkCommonFieldsStrategyColumnTest() {
-        super(new MarkCommonFieldsStrategy(new ColumnsGameFieldTranslator(1)));
+    public SetCommonFieldsStrategyColumnTest() {
+        super(new SetCommonFieldsStrategy(new ColumnsGameFieldTranslator(1)));
     }
 
     @Test

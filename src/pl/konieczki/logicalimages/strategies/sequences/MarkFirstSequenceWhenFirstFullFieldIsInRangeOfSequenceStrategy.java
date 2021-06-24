@@ -1,7 +1,8 @@
-package pl.konieczki.logicalimages.strategies;
+package pl.konieczki.logicalimages.strategies.sequences;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.*;
+import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**

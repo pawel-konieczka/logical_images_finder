@@ -1,20 +1,21 @@
-package pl.konieczki.logicalimages.strategies;
+package pl.konieczki.logicalimages.strategies.fields;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.*;
+import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 import java.util.Arrays;
 
 /**
  * Wyznacza pola wspólne dla skrajnych położeń (wszystkie do początku przekrój wszystkie do końca).
- * Strategia polowa. Uwzględnia ograniczenia zakresów.
+ * Strategia polowa.
  */
-public class MarkCommonFieldsStrategy extends AbstractStrategy {
+public class SetCommonFieldsStrategy extends AbstractStrategy {
 
     private static final int ID_NO_INDICATOR = -1;
 
-    public MarkCommonFieldsStrategy(@NonNull GameFieldTranslator translator) {
+    public SetCommonFieldsStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
     }
 

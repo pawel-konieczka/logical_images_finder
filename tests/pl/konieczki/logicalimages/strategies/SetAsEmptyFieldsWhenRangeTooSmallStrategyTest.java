@@ -2,12 +2,13 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.fields.SetAsEmptyFieldsWhenRangeTooSmallStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
-public class MarkAsEmptyWhenRangeTooSmallStrategyTest extends AbstractTestClassForRowStrategies {
+public class SetAsEmptyFieldsWhenRangeTooSmallStrategyTest extends AbstractTestClassForRowStrategies {
 
-    public MarkAsEmptyWhenRangeTooSmallStrategyTest() {
-        super(new MarkAsEmptyWhenRangeTooSmallStrategy(new RowsGameFieldTranslator(1)));
+    public SetAsEmptyFieldsWhenRangeTooSmallStrategyTest() {
+        super(new SetAsEmptyFieldsWhenRangeTooSmallStrategy(new RowsGameFieldTranslator(1)));
     }
 
     @Test

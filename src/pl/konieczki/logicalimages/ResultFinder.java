@@ -2,7 +2,10 @@ package pl.konieczki.logicalimages;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.Game;
-import pl.konieczki.logicalimages.strategies.*;
+import pl.konieczki.logicalimages.strategies.FindResultStrategy;
+import pl.konieczki.logicalimages.strategies.RecalculateFieldsRangeAndSequencesStrategy;
+import pl.konieczki.logicalimages.strategies.fields.*;
+import pl.konieczki.logicalimages.strategies.sequences.*;
 import pl.konieczki.logicalimages.translator.ColumnsGameFieldTranslator;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
@@ -50,17 +53,22 @@ public class ResultFinder {
 
     private void internalStrategiesInit(@NonNull GameFieldTranslator translator) {
         this.strategies.add(new RecalculateFieldsRangeAndSequencesStrategy(translator)); // must be first
-        this.strategies.add(new MarkAsEmptyWhenNoSequencesStrategy(translator));
-        this.strategies.add(new MarkCommonFieldsStrategy(translator));
-        this.strategies.add(new MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy(translator));
-        this.strategies.add(new MarkSequencesUsingSequenceCountStrategy(translator));
+        // sequences strategies
         this.strategies.add(new MarkFirstSureSequenceStrategy(translator));
-        this.strategies.add(new ExpandFieldsWithSequenceLengthStrategy(translator));
-        this.strategies.add(new MarkUnreachableFieldsStrategy(translator));
-        this.strategies.add(new MarkCompletedSequencesBordersStrategy(translator));
-        this.strategies.add(new ExpandSequencesBordersForFullFieldsStrategy(translator));
-        this.strategies.add(new MarkAsEmptyWhenRangeTooSmallStrategy(translator));
-        this.strategies.add(new MarkAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy(translator));
-        this.strategies.add(new MarkAsFullSequenceRangeStrategy(translator));
+        this.strategies.add(new MarkSequencesUsingSequenceCountStrategy(translator));
+        this.strategies.add(new MarkSequenceRangeUsingSequenceLengthStrategy(translator));
+        this.strategies.add(new MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy(translator));
+        this.strategies.add(new MarkFirstSequenceIfFirstFullFieldBlocksSequenceStrategy(translator));
+        // last in sequences strategies set
+        this.strategies.add(new SetAsFullAllFieldsInSequenceRangeStrategy(translator));
+        this.strategies.add(new SetAsEmptyBorderFieldsForCompletedSequencesStrategy(translator));
+        // fields strategies
+        this.strategies.add(new SetAsEmptyFieldsWhenNoSequencesStrategy(translator));
+        this.strategies.add(new SetCommonFieldsStrategy(translator));
+        this.strategies.add(new SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy(translator));
+        this.strategies.add(new SetAsEmptyFieldsWhenRangeTooSmallStrategy(translator));
+        this.strategies.add(new SetAsEmptyUnreachableFieldsStrategy(translator));
+        // last in fields strategies set
+        this.strategies.add(new ExpandSequencesRangeForFullFieldsStrategy(translator));
     }
 }

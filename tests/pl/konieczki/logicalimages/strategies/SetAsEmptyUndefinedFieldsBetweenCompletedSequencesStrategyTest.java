@@ -2,12 +2,13 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.fields.SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
-public class MarkAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategyTest extends AbstractTestClassForRowStrategies {
+public class SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategyTest extends AbstractTestClassForRowStrategies {
 
-    public MarkAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategyTest() {
-        super(new MarkAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy(new RowsGameFieldTranslator(1)));
+    public SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategyTest() {
+        super(new SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy(new RowsGameFieldTranslator(1)));
     }
 
     @Test

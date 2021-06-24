@@ -5,6 +5,7 @@ import pl.konieczki.logicalimages.model.FieldSequence;
 import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
+import pl.konieczki.logicalimages.strategies.sequences.MarkSequencesUsingSequenceCountStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
 public class MarkSequencesUsingSequenceCountStrategyTest extends AbstractTestClassForRowStrategies {

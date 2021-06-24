@@ -1,17 +1,18 @@
-package pl.konieczki.logicalimages.strategies;
+package pl.konieczki.logicalimages.strategies.fields;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.Game;
+import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
  * Dla kompletnych ciągów oznacza jako puste pierwsze pole przed i pierwsze pole po ciągu.
  * Strategia polowa.
  */
-public class MarkCompletedSequencesBordersStrategy extends AbstractStrategy {
+public class SetAsEmptyBorderFieldsForCompletedSequencesStrategy extends AbstractStrategy {
 
-    public MarkCompletedSequencesBordersStrategy(@NonNull GameFieldTranslator translator) {
+    public SetAsEmptyBorderFieldsForCompletedSequencesStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
     }
 

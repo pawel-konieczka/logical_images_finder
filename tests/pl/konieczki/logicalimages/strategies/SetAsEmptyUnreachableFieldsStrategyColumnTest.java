@@ -2,12 +2,13 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.fields.SetAsEmptyUnreachableFieldsStrategy;
 import pl.konieczki.logicalimages.translator.ColumnsGameFieldTranslator;
 
-public class MarkUnreachableFieldsStrategyColumnTest extends AbstractTestClassForColStrategies {
+public class SetAsEmptyUnreachableFieldsStrategyColumnTest extends AbstractTestClassForColStrategies {
 
-    public MarkUnreachableFieldsStrategyColumnTest() {
-        super(new MarkUnreachableFieldsStrategy(new ColumnsGameFieldTranslator(1)));
+    public SetAsEmptyUnreachableFieldsStrategyColumnTest() {
+        super(new SetAsEmptyUnreachableFieldsStrategy(new ColumnsGameFieldTranslator(1)));
     }
 
     @Test

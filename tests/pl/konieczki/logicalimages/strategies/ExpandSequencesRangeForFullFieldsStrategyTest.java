@@ -2,12 +2,13 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.sequences.ExpandSequencesRangeForFullFieldsStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
-public class ExpandSequencesBordersForFullFieldsStrategyTest extends AbstractTestClassForRowStrategies {
+public class ExpandSequencesRangeForFullFieldsStrategyTest extends AbstractTestClassForRowStrategies {
 
-    public ExpandSequencesBordersForFullFieldsStrategyTest() {
-        super(new ExpandSequencesBordersForFullFieldsStrategy(new RowsGameFieldTranslator(1)));
+    public ExpandSequencesRangeForFullFieldsStrategyTest() {
+        super(new ExpandSequencesRangeForFullFieldsStrategy(new RowsGameFieldTranslator(1)));
     }
 
     @Test

@@ -63,6 +63,6 @@ public class Game19Labedz extends AbstractTestGame {
 
     @Override
     protected void addHints(@NonNull Game game) {
-        game.setField(9, 20, FieldState.FULL); // rozwiazanie jest niejednoznaczne; dodaje hinta
+        game.setField(9, 20, FieldState.FULL); // rozwiązanie jest niejednoznaczne; dodaje hinta
     }
 }

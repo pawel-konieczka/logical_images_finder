@@ -1,7 +1,5 @@
 package pl.konieczki.logicalimages.games;
 
-import lombok.NonNull;
-import pl.konieczki.logicalimages.model.FieldsRange;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
 
@@ -69,11 +67,5 @@ public class Game18Los extends AbstractTestGame {
         game.setHorizontalSequences(29, new FieldsSequences(1, 2, 1, 2));
         game.setHorizontalSequences(30, new FieldsSequences(2, 1));
         return game;
-    }
-
-    @Override
-    protected void addHints(@NonNull Game game) {
-        game.getHorizontalSequencesAt(8).getSequence(0).setRange(FieldsRange.createRange(17, 21));
-        game.getHorizontalSequencesAt(8).getSequence(1).setRange(FieldsRange.createRange(23, 24));
     }
 }

@@ -1,9 +1,9 @@
-package pl.konieczki.logicalimages.strategies;
+package pl.konieczki.logicalimages.strategies.sequences;
 
 import lombok.NonNull;
-import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
+import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
@@ -11,9 +11,9 @@ import pl.konieczki.logicalimages.translator.GameFieldTranslator;
  * tego ciągu.
  * Strategia dla ciągów.
  */
-public class ExpandFieldsWithSequenceLengthStrategy extends AbstractStrategy {
+public class MarkSequenceRangeUsingSequenceLengthStrategy extends AbstractStrategy {
 
-    public ExpandFieldsWithSequenceLengthStrategy(@NonNull GameFieldTranslator translator) {
+    public MarkSequenceRangeUsingSequenceLengthStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
     }
 
@@ -29,41 +29,23 @@ public class ExpandFieldsWithSequenceLengthStrategy extends AbstractStrategy {
 
     private boolean expandFirstSequenceFromBeginning(@NonNull FieldsSequences sequences, @NonNull Game game) {
         final var firstSequence = sequences.getFirst();
-        if (firstSequence.isCompleted())
+        if (!firstSequence.isIdentified() || firstSequence.isCompleted())
             return false;
         final var rangeStart = translator.getFieldsRangeStart(game);
         final var sequenceEnd = rangeStart + firstSequence.getLength() - 1;
-        if (firstSequence.isIdentified()) {
-            if (firstSequence.getFieldTo() < sequenceEnd)
-                return firstSequence.setFieldTo(sequenceEnd);
-        } else {
-            // all fields should be undefined in range
-            for (var p = rangeStart; p <= sequenceEnd; p++)
-                if (translator.getFieldStateInRange(game, p) != FieldState.UNDEFINED)
-                    return false;
-            if (translator.getFieldStateInRange(game, sequenceEnd + 1) == FieldState.FULL)
-                return firstSequence.setFieldFrom(sequenceEnd + 1);
-        }
+        if (firstSequence.getFieldTo() < sequenceEnd)
+            return firstSequence.setFieldTo(sequenceEnd);
         return false;
     }
 
     private boolean expandFirstSequenceFromEnding(@NonNull FieldsSequences sequences, @NonNull Game game) {
         final var lastSequence = sequences.getLast();
-        if (lastSequence.isCompleted())
+        if (!lastSequence.isIdentified() || lastSequence.isCompleted())
             return false;
         final var rangeEnd = translator.getFieldsRangeEnd(game);
         final var sequenceStart = rangeEnd - lastSequence.getLength() + 1;
-        if (lastSequence.isIdentified()) {
-            if (lastSequence.getFieldFrom() > sequenceStart)
-                return lastSequence.setFieldFrom(sequenceStart);
-        } else {
-            // all fields should be undefined in range
-            for (var p = rangeEnd; p >= sequenceStart; p--)
-                if (translator.getFieldStateInRange(game, p) != FieldState.UNDEFINED)
-                    return false;
-            if (translator.getFieldStateInRange(game, sequenceStart - 1) == FieldState.FULL)
-                return lastSequence.setFieldTo(sequenceStart - 1);
-        }
+        if (lastSequence.getFieldFrom() > sequenceStart)
+            return lastSequence.setFieldFrom(sequenceStart);
         return false;
     }
 }

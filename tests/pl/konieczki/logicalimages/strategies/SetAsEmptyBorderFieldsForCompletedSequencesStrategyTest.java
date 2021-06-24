@@ -2,12 +2,13 @@ package pl.konieczki.logicalimages.strategies;
 
 import org.junit.Test;
 import pl.konieczki.logicalimages.model.FieldSequence;
+import pl.konieczki.logicalimages.strategies.fields.SetAsEmptyBorderFieldsForCompletedSequencesStrategy;
 import pl.konieczki.logicalimages.translator.RowsGameFieldTranslator;
 
-public class MarkCompletedSequencesBordersStrategyTest extends AbstractTestClassForRowStrategies {
+public class SetAsEmptyBorderFieldsForCompletedSequencesStrategyTest extends AbstractTestClassForRowStrategies {
 
-    public MarkCompletedSequencesBordersStrategyTest() {
-        super(new MarkCompletedSequencesBordersStrategy(new RowsGameFieldTranslator(1)));
+    public SetAsEmptyBorderFieldsForCompletedSequencesStrategyTest() {
+        super(new SetAsEmptyBorderFieldsForCompletedSequencesStrategy(new RowsGameFieldTranslator(1)));
     }
 
     @Test
