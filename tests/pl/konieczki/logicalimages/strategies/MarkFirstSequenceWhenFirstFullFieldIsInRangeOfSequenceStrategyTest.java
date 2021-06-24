@@ -27,7 +27,7 @@ public class MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategyTest 
 
     @Test
     public void oznaczPierwszyCiagOdKoncaOdBrzegu() {
-        baseTrueTest("????XXX|3[-1:-1]", "????XXX|3[7:7]", new FieldSequence(1, 3));
+        baseTrueTest("????XXX|3[-1:-1]", "????XXX|3[5:7*]", new FieldSequence(1, 3));
     }
 
     @Test
@@ -43,5 +43,13 @@ public class MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategyTest 
     @Test
     public void oznaczPierwszyCiagOdKoncaPoNieokreslonychBrakZmian() {
         baseTrueTest("????X??|3[-1:-1]", "????X??|3[5:5]", new FieldSequence(1, 3));
+    }
+
+    @Test
+    public void oznaczDrugiCiagOdKoncaGdyDwaPelneSaDlaDrugiegoCiagu() {
+        baseTrueTest(
+                "???????????X?X??????|1[-1:-1],9[14:14]", "???????????X?X??????|1[-1:-1],9[12:14]",
+                new FieldSequence(1, 1), new FieldSequence(2, 9, 14, 14)
+        );
     }
 }
