@@ -5,7 +5,6 @@ import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsRange;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
@@ -13,7 +12,7 @@ import pl.konieczki.logicalimages.translator.GameFieldTranslator;
  * najkrótszego dostępnego ciągu.
  * Strategia polowa.
  */
-public class SetAsEmptyFieldsWhenRangeTooSmallStrategy extends AbstractStrategy {
+public class SetAsEmptyFieldsWhenRangeTooSmallStrategy extends AbstractFieldStrategy {
 
     public SetAsEmptyFieldsWhenRangeTooSmallStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);

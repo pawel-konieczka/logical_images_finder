@@ -3,7 +3,6 @@ package pl.konieczki.logicalimages.strategies.sequences;
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
@@ -11,7 +10,7 @@ import pl.konieczki.logicalimages.translator.GameFieldTranslator;
  * tego ciągu.
  * Strategia dla ciągów.
  */
-public class MarkSequenceRangeUsingSequenceLengthStrategy extends AbstractStrategy {
+public class MarkSequenceRangeUsingSequenceLengthStrategy extends AbstractSequencesStrategy {
 
     public MarkSequenceRangeUsingSequenceLengthStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);

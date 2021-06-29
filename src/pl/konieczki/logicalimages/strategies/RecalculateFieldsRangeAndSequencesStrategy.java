@@ -16,14 +16,14 @@ public class RecalculateFieldsRangeAndSequencesStrategy extends AbstractStrategy
     }
 
     @Override
-    protected boolean internalFind(@NonNull Game game) {
-        return translator.recalculateFieldsRangeAndSequences(game);
+    protected boolean checkIfStrategyIsApplicable(@NonNull Game game) {
+        final boolean b1 = !translator.checkIfAllFieldsMarkedInRange(game);
+        final boolean b2 = !translator.getSequences(game).checkIfAllSequencesAreCompleted();
+        return b1 || b2;
     }
 
     @Override
-    protected boolean checkIfAllFieldsProperlyMarked(@NonNull Game game) {
-        final boolean b1 = translator.checkIfAllFieldsMarkedInRange(game);
-        final boolean b2 = translator.getSequences(game).checkIfAllSequencesAreCompleted();
-        return b1 && b2;
+    protected boolean internalFind(@NonNull Game game) {
+        return translator.recalculateFieldsRangeAndSequences(game);
     }
 }

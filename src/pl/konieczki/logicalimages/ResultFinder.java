@@ -55,6 +55,7 @@ public class ResultFinder {
         this.strategies.add(new RecalculateFieldsRangeAndSequencesStrategy(translator)); // must be first
         // sequences strategies
         this.strategies.add(new MarkFirstSureSequenceStrategy(translator));
+        this.strategies.add(new MarkSequencesWithSingleSequenceCountStrategy(translator));
         this.strategies.add(new MarkSequencesUsingSequenceCountStrategy(translator));
         this.strategies.add(new MarkSequenceRangeUsingSequenceLengthStrategy(translator));
         this.strategies.add(new MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy(translator));

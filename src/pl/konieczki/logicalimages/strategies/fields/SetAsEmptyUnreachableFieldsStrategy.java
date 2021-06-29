@@ -4,14 +4,13 @@ import lombok.NonNull;
 import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
  * W ramach wiersza/kolumny oznacza wszystkie skrajne na lewo i prawo/od góry i dołu
  * jako zawsze puste dla pól spoza zakresu dostępności.
  */
-public class SetAsEmptyUnreachableFieldsStrategy extends AbstractStrategy {
+public class SetAsEmptyUnreachableFieldsStrategy extends AbstractFieldStrategy {
 
     public SetAsEmptyUnreachableFieldsStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);

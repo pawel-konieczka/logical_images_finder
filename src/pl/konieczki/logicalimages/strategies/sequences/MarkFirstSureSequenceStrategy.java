@@ -2,7 +2,6 @@ package pl.konieczki.logicalimages.strategies.sequences;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.*;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
@@ -10,7 +9,7 @@ import pl.konieczki.logicalimages.translator.GameFieldTranslator;
  * wiąże je z odpowiednim ciągiem i od tego pola oznacza kolejne pola jako pełne, zgodnie z długością ciągu.
  * Strategia dla ciągów.
  */
-public class MarkFirstSureSequenceStrategy extends AbstractStrategy {
+public class MarkFirstSureSequenceStrategy extends AbstractSequencesStrategy {
 
     public MarkFirstSureSequenceStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
@@ -24,11 +23,6 @@ public class MarkFirstSureSequenceStrategy extends AbstractStrategy {
         final boolean b1 = markFirstSequenceFromBeginning(sequences, game); // ciurkiem od początku
         final boolean b2 = markFirstSequenceFromEnding(sequences, game); // ciurkiem od końca
         return b1 || b2;
-    }
-
-    @Override
-    protected boolean checkIfAllFieldsProperlyMarked(@NonNull Game game) {
-        return translator.getSequences(game).checkIfAllSequencesAreCompleted();
     }
 
     private boolean markFirstSequenceFromBeginning(@NonNull FieldsSequences sequences, @NonNull Game game) {

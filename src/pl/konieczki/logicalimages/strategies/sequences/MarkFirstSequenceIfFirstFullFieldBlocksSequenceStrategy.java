@@ -4,7 +4,6 @@ import lombok.NonNull;
 import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.FieldsSequences;
 import pl.konieczki.logicalimages.model.Game;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
@@ -12,7 +11,7 @@ import pl.konieczki.logicalimages.translator.GameFieldTranslator;
  * wstawić ten ciąg.
  * Strategia dla ciągów.
  */
-public class MarkFirstSequenceIfFirstFullFieldBlocksSequenceStrategy extends AbstractStrategy {
+public class MarkFirstSequenceIfFirstFullFieldBlocksSequenceStrategy extends AbstractSequencesStrategy {
 
     public MarkFirstSequenceIfFirstFullFieldBlocksSequenceStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);

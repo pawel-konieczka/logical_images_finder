@@ -2,7 +2,6 @@ package pl.konieczki.logicalimages.strategies.sequences;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.*;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
@@ -11,7 +10,7 @@ import pl.konieczki.logicalimages.translator.GameFieldTranslator;
  * jest większa, równa lub mniejsza o jeden, wówczas to pole wiążemy z pierwszym/ostatnim ciągiem.
  * Strategia dla ciągów.
  */
-public class MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy extends AbstractStrategy {
+public class MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy extends AbstractSequencesStrategy {
 
     public MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
@@ -25,11 +24,6 @@ public class MarkFirstSequenceWhenFirstFullFieldIsInRangeOfSequenceStrategy exte
         final boolean b1 = markFirstSequenceFromBeginning(sequences, game); // ciurkiem od początku
         final boolean b2 = markFirstSequenceFromEnding(sequences, game); // ciurkiem od końca
         return b1 || b2;
-    }
-
-    @Override
-    protected boolean checkIfAllFieldsProperlyMarked(@NonNull Game game) {
-        return translator.getSequences(game).checkIfAllSequencesAreCompleted();
     }
 
     private boolean markFirstSequenceFromBeginning(@NonNull FieldsSequences fieldsSequences, @NonNull Game game) {

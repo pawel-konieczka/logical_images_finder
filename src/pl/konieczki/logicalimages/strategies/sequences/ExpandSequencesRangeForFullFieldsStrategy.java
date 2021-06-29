@@ -4,14 +4,13 @@ import lombok.NonNull;
 import pl.konieczki.logicalimages.model.FieldSequence;
 import pl.konieczki.logicalimages.model.FieldState;
 import pl.konieczki.logicalimages.model.Game;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
  * Dla każdego częściowo zidentyfikowanego ciągu poszerza jego granice według pełnych pól.
  * Strategia ciągowa.
  */
-public class ExpandSequencesRangeForFullFieldsStrategy extends AbstractStrategy {
+public class ExpandSequencesRangeForFullFieldsStrategy extends AbstractSequencesStrategy {
 
     public ExpandSequencesRangeForFullFieldsStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
@@ -32,11 +31,6 @@ public class ExpandSequencesRangeForFullFieldsStrategy extends AbstractStrategy 
             anyChange = anyChange || b1 || b2;
         }
         return anyChange;
-    }
-
-    @Override
-    protected boolean checkIfAllFieldsProperlyMarked(@NonNull Game game) {
-        return translator.getSequences(game).checkIfAllSequencesAreCompleted();
     }
 
     private boolean updateFieldFrom(FieldSequence sequence, Game game) {

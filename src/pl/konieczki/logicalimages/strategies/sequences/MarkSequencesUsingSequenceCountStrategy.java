@@ -2,7 +2,6 @@ package pl.konieczki.logicalimages.strategies.sequences;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.*;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
  * Analogicznie dla podziałów i ciągów od końca.
  * Strategia pól i ciągów.
  */
-public class MarkSequencesUsingSequenceCountStrategy extends AbstractStrategy {
+public class MarkSequencesUsingSequenceCountStrategy extends AbstractSequencesStrategy {
 
     public MarkSequencesUsingSequenceCountStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);
@@ -41,11 +40,6 @@ public class MarkSequencesUsingSequenceCountStrategy extends AbstractStrategy {
         return oznaczZakresDlaWielokrotnych(sequences, game);
     }
 
-    @Override
-    protected boolean checkIfAllFieldsProperlyMarked(@NonNull Game game) {
-        return translator.getSequences(game).checkIfAllSequencesAreCompleted();
-    }
-
     private boolean oznaczZakresDlaWielokrotnych(FieldsSequences sequences, Game game) {
         assert sequences.getCount() > 2;
         final var firstSequence = sequences.getFirst();
@@ -62,15 +56,19 @@ public class MarkSequencesUsingSequenceCountStrategy extends AbstractStrategy {
         assert sequences.getCount() == 2;
         final var firstSequence = sequences.getFirst();
         final var lastSequence = sequences.getLast();
-        // ???????????????|3,9 a
-        // X??????????????|3,9 b
-        // ?X?????????????|3,9 c
-        // ??????????XXXXX|3,9 d
-        // ??????????XXXX?|3,9 e
-        // ?XX???XXXXXXX??|3,9 f
-        // ??????X?XXXXX??|3,9 g ???
-        // ?XX???XXXXX????|3,9 h
-        // ?X??? XXXX?????|3,4 @TODO
+        // ???????????????|3,9 a -> false
+        // X??????????????|3,9 b -> 3[1:1],9
+        // ?X?????????????|3,9 c -> 3[2:2],9
+        // ??????????XXXXX|3,9 d -> 3,9[11:15]
+        // ??????????XXXX?|3,9 e -> 3,9[11:14]
+        // ?XX???XXXXXXX??|3,9 f -> 3[2:3],9[7:13]
+        // ??????X?XXXXX??|3,9 g -> 3,9[8:12]
+        // ?XX???XXXXX????|3,9 h -> 3[2:3],9[7:11]
+        // ?X??? XXXX?????|3,4 -> 3[2:2],4[7:10*]
+        // ??X  ???????????  X?|2,2 -> 2[3:3],2[20:20]
+        // ??????X   XX?? ????|4,3 -> 4[7:7],3[11:12]
+//        final var splitRanges = splitToRangesWithEmptyFields(game); @TODO
+
         final FieldsRangeWithState[] divisions = findDivisions(game);
         if (oznaczZakresDlaPodwojnegoCzyWariantA(divisions)) { // a
             return false;
@@ -94,6 +92,10 @@ public class MarkSequencesUsingSequenceCountStrategy extends AbstractStrategy {
             return expandFieldsRange(lastSequence, divisions[3]);
         }
         return false;
+    }
+
+    private FieldsRange[] splitToRangesWithEmptyFields(@NonNull Game game) {
+        return new FieldsRange[0];
     }
 
     private boolean oznaczZakresDlaPodwojnegoCzyWariantA(FieldsRangeWithState[] divisions) {

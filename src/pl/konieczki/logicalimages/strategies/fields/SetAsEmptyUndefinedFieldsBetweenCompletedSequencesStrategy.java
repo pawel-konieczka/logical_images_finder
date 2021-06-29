@@ -2,14 +2,13 @@ package pl.konieczki.logicalimages.strategies.fields;
 
 import lombok.NonNull;
 import pl.konieczki.logicalimages.model.*;
-import pl.konieczki.logicalimages.strategies.AbstractStrategy;
 import pl.konieczki.logicalimages.translator.GameFieldTranslator;
 
 /**
  * Strategia dla dwóch sąsiadujących kompletnych ciągów ustawia wszystkie pola pomiędzy jako puste.
  * Strategia polowa.
  */
-public class SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy extends AbstractStrategy {
+public class SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy extends AbstractFieldStrategy {
 
     public SetAsEmptyUndefinedFieldsBetweenCompletedSequencesStrategy(@NonNull GameFieldTranslator translator) {
         super(translator);

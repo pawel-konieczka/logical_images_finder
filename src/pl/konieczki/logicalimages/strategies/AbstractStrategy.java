@@ -20,7 +20,7 @@ public abstract class AbstractStrategy implements FindResultStrategy {
     public boolean find(@NonNull Game game) {
         if (noMoreChangesPossible)
             return false;
-        if (checkIfAllFieldsProperlyMarked(game)) {
+        if (!checkIfStrategyIsApplicable(game)) {
             return markNoMoreChangesPossibility();
         }
         return internalFind(game);
@@ -33,9 +33,7 @@ public abstract class AbstractStrategy implements FindResultStrategy {
 
     protected abstract boolean internalFind(@NonNull Game game);
 
-    protected boolean checkIfAllFieldsProperlyMarked(@NonNull Game game) {
-        return translator.checkIfAllFieldsMarkedInRange(game);
-    }
+    protected abstract boolean checkIfStrategyIsApplicable(@NonNull Game game);
 
     protected boolean markNoMoreChangesPossibility() {
         this.noMoreChangesPossible = true;

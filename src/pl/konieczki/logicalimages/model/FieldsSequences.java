@@ -1,5 +1,6 @@
 package pl.konieczki.logicalimages.model;
 
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -91,8 +92,16 @@ public class FieldsSequences {
     }
 
     public boolean checkIfAllSequencesAreCompleted() {
+        return checkIfAllSequencesAreGeneric(FieldSequence::isCompleted);
+    }
+
+    public boolean checkIfAllSequencesAreIdentified() {
+        return checkIfAllSequencesAreGeneric(FieldSequence::isIdentified);
+    }
+
+    private boolean checkIfAllSequencesAreGeneric(Predicate<FieldSequence> isFunction) {
         for (FieldSequence fieldSequence : this.sequences) {
-            if (!fieldSequence.isCompleted())
+            if (!isFunction.test(fieldSequence))
                 return false;
         }
         return true;
